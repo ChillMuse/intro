@@ -1,7 +1,36 @@
-import React from 'react';
-import { Smile, Sliders, Palette, ChevronRight } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Smile, Sliders, Palette, ChevronRight, CloudRain, Zap, Sun } from 'lucide-react';
 
 export const Features: React.FC = () => {
+  const [moodIndex, setMoodIndex] = useState(0);
+
+  const moods = [
+    { 
+      icon: <CloudRain className="w-24 h-24 text-brand-black" strokeWidth={2.5} />, 
+      label: "Feeling: Melancholy ☁️",
+      color: "bg-blue-300" 
+    },
+    { 
+      icon: <Zap className="w-24 h-24 text-brand-black" strokeWidth={2.5} />, 
+      label: "Feeling: Energetic ⚡",
+      color: "bg-brand-yellow"
+    },
+    { 
+      icon: <Sun className="w-24 h-24 text-brand-black" strokeWidth={2.5} />, 
+      label: "Feeling: Hopeful ☀️",
+      color: "bg-brand-accent"
+    }
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setMoodIndex((prev) => (prev + 1) % moods.length);
+    }, 2000); // Change mood every 2 seconds
+    return () => clearInterval(interval);
+  }, []);
+
+  const currentMood = moods[moodIndex];
+
   return (
     <section id="features" className="py-24 bg-brand-cream">
       <div className="container mx-auto px-6">
@@ -19,11 +48,13 @@ export const Features: React.FC = () => {
             <div className="order-2 md:order-1 relative">
               <div className="bg-white border-2 border-brand-black p-8 rounded-[2.5rem] shadow-brutal-lg flex items-center justify-center overflow-hidden aspect-square">
                 <div className="relative text-center">
-                    <div className="w-48 h-48 bg-brand-yellow rounded-full border-4 border-brand-black flex items-center justify-center relative shadow-brutal mb-6 mx-auto animate-float">
-                        <Smile className="w-24 h-24 text-brand-black" strokeWidth={2.5} />
+                    <div className={`w-48 h-48 ${currentMood.color} rounded-full border-4 border-brand-black flex items-center justify-center relative shadow-brutal mb-6 mx-auto animate-float transition-colors duration-500`}>
+                        <div key={moodIndex} className="animate-in zoom-in duration-300">
+                          {currentMood.icon}
+                        </div>
                     </div>
-                    <div className="bg-brand-black text-white px-6 py-3 rounded-full font-bold inline-block transform rotate-2">
-                        Feeling: Melancholy ☁️
+                    <div className="bg-brand-black text-white px-6 py-3 rounded-full font-bold inline-block transform rotate-2 transition-all duration-300 min-w-[200px]">
+                        {currentMood.label}
                     </div>
                 </div>
               </div>
