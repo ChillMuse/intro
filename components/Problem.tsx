@@ -113,16 +113,16 @@ const EchoVisual: React.FC = () => {
           }
       }
 
-      // Draw Solid Circle Background (No transparency)
+      // Draw Soft Gradient Circle Background (No border)
+      const gradient = ctx.createRadialGradient(bouncer.x, bouncer.y, 0, bouncer.x, bouncer.y, radius);
+      gradient.addColorStop(0, `rgba(${currentEmotion.color}, 1)`);
+      gradient.addColorStop(0.6, `rgba(${currentEmotion.color}, 0.6)`);
+      gradient.addColorStop(1, `rgba(${currentEmotion.color}, 0)`);
+
       ctx.beginPath();
       ctx.arc(bouncer.x, bouncer.y, radius, 0, Math.PI * 2);
-      ctx.fillStyle = currentEmotion.hex; // Solid color
+      ctx.fillStyle = gradient;
       ctx.fill();
-      
-      // Draw Border
-      ctx.lineWidth = 3;
-      ctx.strokeStyle = '#121212'; // brand-black
-      ctx.stroke();
 
       // Draw Emoji
       ctx.font = `${bouncer.size * 0.6}px "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif`;
