@@ -65,7 +65,7 @@ export const Features: React.FC = () => {
               </div>
               <h3 className="text-3xl font-display font-bold mb-4">Mood Check & Character</h3>
               <p className="text-lg text-brand-text/70 leading-relaxed mb-6 font-medium">
-                Meet your new unisex AI companion. It mirrors your emotions in real-time, validating how you feel without judgement. Seeing your mood visualized helps you externalize it.
+                Meet your new AI companion. It mirrors your emotions in real-time, validating how you feel without judgement. Seeing your mood visualized helps you externalize it.
               </p>
             </div>
           </div>
@@ -122,15 +122,65 @@ export const Features: React.FC = () => {
           {/* Feature 3: AI Journaling */}
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1 relative">
-                <div className="bg-white border-2 border-brand-black p-8 rounded-[2.5rem] shadow-brutal-lg aspect-square flex items-center justify-center relative">
-                    <div className="grid grid-cols-2 gap-3 w-64 rotate-3">
-                        <div className="aspect-[4/5] bg-brand-yellow rounded-lg border-2 border-brand-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"></div>
-                        <div className="aspect-[4/5] bg-brand-accent rounded-lg border-2 border-brand-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] translate-y-6"></div>
-                        <div className="aspect-[4/5] bg-brand-black rounded-lg border-2 border-brand-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] -translate-y-6"></div>
-                        <div className="aspect-[4/5] bg-gray-200 rounded-lg border-2 border-brand-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"></div>
+                <div className="bg-white border-2 border-brand-black p-8 rounded-[2.5rem] shadow-brutal-lg aspect-square flex items-center justify-center relative bg-contain bg-center bg-no-repeat overflow-hidden">
+                    
+                    {/* Collage Container */}
+                    <div className="relative w-[300px] h-[400px] bg-[#dcdcdc] rotate-3 shadow-[4px_4px_0px_0px_rgba(18,18,18,0.5)] border border-brand-black/20 overflow-hidden flex-shrink-0">
+                        
+                        {/* Background Map Texture */}
+                        <div className="absolute inset-0 opacity-10" style={{backgroundImage: 'url("https://images.unsplash.com/photo-1524661135-423995f22d0b?w=400&q=80")', backgroundSize: 'cover'}}></div>
+
+                        {/* Big Ben Left */}
+                        <div className="absolute top-0 left-0 w-[55%] h-[60%] overflow-hidden border-r-2 border-brand-black/10">
+                             <img src="https://images.unsplash.com/photo-1529655683826-aba9b3e77383?w=400&q=80" className="w-full h-full object-cover sepia-[0.3]" alt="Big Ben" />
+                        </div>
+
+                        {/* Top Right: Cafe/Vibe */}
+                        <div className="absolute top-0 right-0 w-[45%] h-[40%] overflow-hidden bg-red-100 p-2">
+                             <img src="https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=400&q=80" className="w-full h-full object-cover rounded-sm rotate-2 shadow-sm" alt="Coffee" />
+                        </div>
+
+                        {/* Cutout Text LONDON */}
+                        <div className="absolute top-[45%] left-0 w-full z-20 flex justify-center gap-1 font-black font-display text-4xl transform -rotate-6 mix-blend-hard-light drop-shadow-md">
+                            <span className="bg-brand-black text-white px-1 py-1 -rotate-3">L</span>
+                            <span className="bg-brand-yellow text-brand-black px-1 py-1 rotate-2">O</span>
+                            <span className="bg-brand-accent text-white px-1 py-1 -rotate-1">N</span>
+                            <span className="bg-white text-brand-black px-1 py-1 rotate-3 border border-black">D</span>
+                            <span className="bg-brand-black text-white px-1 py-1 -rotate-2">O</span>
+                            <span className="bg-brand-yellow text-brand-black px-1 py-1 rotate-1">N</span>
+                        </div>
+
+                        {/* Phone Booth Bottom Left */}
+                        <div className="absolute bottom-0 left-0 w-[60%] h-[45%] overflow-hidden border-t-2 border-brand-black/20 border-r-2">
+                             <img src="https://images.unsplash.com/photo-1520986606214-8b456906c813?w=400&q=80" className="w-full h-full object-cover contrast-125" alt="Phone Booth" />
+                        </div>
+
+                        {/* Taxi Bottom Right */}
+                        <div className="absolute bottom-0 right-0 w-[40%] h-[50%] overflow-hidden bg-gray-200">
+                             <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?w=400&q=80" className="w-full h-full object-cover grayscale-[0.5]" alt="Taxi" />
+                        </div>
+
+                        {/* Ticket Sticker */}
+                        <div className="absolute top-4 left-4 bg-white border border-black px-2 py-1 text-[0.5rem] font-mono rotate-[-10deg] shadow-sm z-30">
+                            LHR ✈️
+                            <br/>
+                            BDG PASS
+                        </div>
+
+                         {/* Bear/Cute Sticker */}
+                        <div className="absolute top-[35%] right-2 text-3xl z-30 drop-shadow-lg rotate-12">
+                             🐻
+                        </div>
+                         {/* Heart Sticker */}
+                        <div className="absolute bottom-4 left-[55%] text-2xl z-30 drop-shadow-lg -rotate-12">
+                             🇬🇧
+                        </div>
+
                     </div>
-                    <div className="absolute bottom-10 bg-white border-2 border-brand-black px-4 py-2 rounded-full font-bold shadow-brutal rotate-[-5deg]">
-                        Generated for You 🎨
+
+                    <div className="absolute bottom-6 bg-white/90 backdrop-blur-md border-2 border-brand-black px-5 py-2 rounded-full font-bold shadow-brutal rotate-[-2deg] z-40 flex items-center gap-2">
+                        <span>Generated for You</span>
+                        <Palette className="w-4 h-4 text-brand-accent" />
                     </div>
                 </div>
             </div>
