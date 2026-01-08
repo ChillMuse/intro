@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { RefreshCcw, HeartCrack, ZapOff, Repeat } from 'lucide-react';
+import { RefreshCcw, HeartCrack, ZapOff, Repeat, Music, Disc, Mic2, Headphones } from 'lucide-react';
 
 const EchoVisual: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -144,8 +144,18 @@ const EchoVisual: React.FC = () => {
 
   return (
     <div ref={containerRef} className="w-full h-[500px] bg-brand-cream rounded-[2.5rem] border-2 border-brand-black overflow-hidden relative mb-16 shadow-brutal transition-all">
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full block" />
-      <div className="absolute top-8 left-0 w-full text-center pointer-events-none z-10 px-4">
+      
+      {/* Background Wallpaper Pattern */}
+      <div className="absolute inset-0 opacity-[0.05] pointer-events-none flex flex-wrap content-center justify-center gap-16 p-8 -rotate-12 scale-150 select-none z-0">
+         {Array.from({ length: 45 }).map((_, i) => {
+            const Icon = [Music, Disc, Mic2, Headphones][i % 4];
+            return <Icon key={i} className="w-20 h-20 text-brand-black" strokeWidth={1.5} />;
+         })}
+      </div>
+
+      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full block z-10" />
+      
+      <div className="absolute top-8 left-0 w-full text-center pointer-events-none z-20 px-4">
         <span className="inline-block bg-white/90 backdrop-blur-sm border-2 border-brand-black shadow-brutal px-6 py-3 rounded-2xl">
             <span className="text-xl md:text-2xl font-black font-display text-brand-black tracking-tight uppercase">
                 Echo Chamber in Your Music Playlist
