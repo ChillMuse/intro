@@ -1,2 +1,2 @@
-# ChillMuse_Landing_Page
+# About ChillMuse
 Landing page for Conrad Challenge
