@@ -50,7 +50,7 @@ const EchoVisual: React.FC = () => {
         y: height / 2,
         vx: initVx, 
         vy: initVy,
-        size: 100 // Diameter of the circle
+        size: 150 // Diameter of the circle (increased 1.5x from 100)
     };
 
     // Trail for the echo effect
