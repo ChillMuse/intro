@@ -86,7 +86,7 @@ export const Hero: React.FC<HeroProps> = ({ onJoinWaitlist }) => {
 
                         {/* Slide 1: Sadness (Rain) - Replaced with Github Raw URL for mood-2.png */}
                         <div className={`absolute inset-0 flex flex-col items-center justify-center p-6 transition-all duration-700 ease-in-out ${currentSlide === 1 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10 pointer-events-none'}`}>
-                            <div className="relative mb-8 w-72 h-72 flex items-center justify-center">
+                            <div className="relative mb-2 w-72 h-72 flex items-center justify-center">
                                  <img 
                                     src="https://raw.githubusercontent.com/ChillMuse/intro/f4e1ce780820e2e0b4c806aef2b4394640912dad/components/mood-2.png" 
                                     alt="Sad Mood" 
@@ -99,14 +99,14 @@ export const Hero: React.FC<HeroProps> = ({ onJoinWaitlist }) => {
 
                         {/* Slide 2: Active (Walking) - Replaced with Github Raw URL for mood-1.png */}
                         <div className={`absolute inset-0 flex flex-col items-center justify-center p-6 transition-all duration-700 ease-in-out ${currentSlide === 2 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10 pointer-events-none'}`}>
-                            <div className="relative mb-8 w-72 h-72 flex items-center justify-center">
+                            <div className="relative mb-2 w-72 h-72 flex items-center justify-center">
                                  <img 
                                     src="https://raw.githubusercontent.com/ChillMuse/intro/f4e1ce780820e2e0b4c806aef2b4394640912dad/components/mood-1.png" 
                                     alt="Walking Mood" 
                                     className="w-full h-full object-contain drop-shadow-xl"
                                  />
                             </div>
-                            <h3 className="text-3xl font-black font-display mb-3">Walk it Off</h3>
+                            <h3 className="text-3xl font-black font-display mb-3">Walk it Off!</h3>
                             <p className="text-center text-brand-text/60 font-medium text-lg px-2">Better beats, better steps, better days.</p>
                         </div>
 
