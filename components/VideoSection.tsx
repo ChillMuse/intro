@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import { Play, Star, Sparkles, ExternalLink, Loader2 } from 'lucide-react';
+import { Play, Star, Sparkles, ExternalLink } from 'lucide-react';
 
 export const VideoSection: React.FC = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   
   const videoId = "YyQFrJjWNt8";
-  const thumbnailUrl = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
 
   return (
     <section className="py-24 bg-brand-yellow border-b-2 border-brand-black relative overflow-hidden">
@@ -45,33 +43,13 @@ export const VideoSection: React.FC = () => {
             <div className={`absolute -top-4 -left-4 w-full h-full bg-white rounded-[2.5rem] border-2 border-brand-black shadow-brutal -z-10 transition-transform duration-300 ${isHovered ? 'translate-x-2 translate-y-2' : ''}`}></div>
             
             <div className="relative aspect-video w-full bg-brand-black rounded-[2rem] border-4 border-brand-black shadow-brutal-lg overflow-hidden flex flex-col">
-                {!isPlaying ? (
-                    <button 
-                        onClick={() => setIsPlaying(true)}
-                        className="w-full h-full relative flex items-center justify-center group/btn cursor-pointer"
-                        aria-label="Play Video"
-                    >
-                        <img 
-                            src={thumbnailUrl} 
-                            alt="ChillMuse Promo Thumbnail" 
-                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover/btn:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-brand-black/20 group-hover/btn:bg-brand-black/10 transition-colors"></div>
-                        
-                        {/* Custom Play Button */}
-                        <div className="relative z-10 w-24 h-24 bg-brand-yellow rounded-full border-4 border-brand-black shadow-brutal flex items-center justify-center group-hover/btn:scale-110 transition-transform duration-300">
-                            <Play className="w-10 h-10 fill-brand-black ml-1.5" />
-                        </div>
-                    </button>
-                ) : (
-                    <iframe 
-                        className="w-full h-full object-cover flex-grow"
-                        src="https://www.youtube.com/embed/YyQFrJjWNt8?rel=0&modestbranding=1" 
-                        title="ChillMuse Promo Video" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        allowFullScreen
-                    ></iframe>
-                )}
+                <iframe 
+                    className="w-full h-full object-cover flex-grow"
+                    src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`} 
+                    title="ChillMuse Promo Video" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowFullScreen
+                ></iframe>
             </div>
             
             {/* Fallback Link */}
