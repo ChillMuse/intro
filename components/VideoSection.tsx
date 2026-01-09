@@ -68,8 +68,7 @@ export const VideoSection: React.FC = () => {
                         className="w-full h-full object-cover flex-grow"
                         src="https://www.youtube.com/embed/YyQFrJjWNt8?rel=0&modestbranding=1" 
                         title="ChillMuse Promo Video" 
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                         allowFullScreen
                     ></iframe>
                 )}
