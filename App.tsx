@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Problem } from './components/Problem';
+import { VideoSection } from './components/VideoSection';
 import { Features } from './components/Features';
 import { Technology } from './components/Technology';
 import { Team } from './components/Team';
@@ -27,6 +28,7 @@ const App: React.FC = () => {
         <main className="flex-grow">
           <Hero onJoinWaitlist={openWaitlist} />
           <Problem />
+          <VideoSection />
           <Features />
           <Technology />
           <Team />
