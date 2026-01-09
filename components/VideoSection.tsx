@@ -25,7 +25,6 @@ export const VideoSection: React.FC = () => {
                 <span>Watch the Promo</span>
             </div>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-brand-black leading-tight">
-                Vibe Check: <br/>
                 <span className="bg-white px-2 inline-block transform -rotate-2 border-2 border-brand-black shadow-brutal mt-2">The ChillMuse Experience</span>
             </h2>
             <p className="text-xl font-medium text-brand-black/80 max-w-2xl mx-auto leading-relaxed">
