@@ -85,7 +85,7 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose })
               {/* Web3Forms Access Key */}
               <input type="hidden" name="access_key" value="d447c316-4436-4d1b-a5ed-b58a6002f0fc" />
               <input type="hidden" name="subject" value="New ChillMuse Waitlist Signup" />
-              <input type="hidden" name="from_name" value="ChillMuse Landing Page" />
+              <input type="hidden" name="from_name" value="ChillMuse" />
               
               {/* Botspam protection (Honeypot) */}
               <input type="checkbox" name="botcheck" className="hidden" style={{display: 'none'}} />
