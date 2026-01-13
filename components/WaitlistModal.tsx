@@ -7,19 +7,38 @@ interface WaitlistModalProps {
 }
 
 export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose }) => {
-  const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle');
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('loading');
-    // Simulate API call
-    setTimeout(() => {
-      setStatus('success');
-      setEmail('');
-    }, 1500);
+    
+    const formData = new FormData(e.currentTarget);
+    
+    try {
+        // Using Web3Forms with the provided access key
+        // Sending formData directly allows the browser to handle Content-Type (multipart/form-data) correctly
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            setStatus('success');
+        } else {
+            console.error("Submission failed", data);
+            alert("Something went wrong. Please try again.");
+            setStatus('idle');
+        }
+    } catch (error) {
+        console.error("Error submitting form:", error);
+        alert("Network error. Please check your connection and try again.");
+        setStatus('idle');
+    }
   };
 
   return (
@@ -63,14 +82,21 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose })
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
+              {/* Web3Forms Access Key */}
+              <input type="hidden" name="access_key" value="d447c316-4436-4d1b-a5ed-b58a6002f0fc" />
+              <input type="hidden" name="subject" value="New ChillMuse Waitlist Signup" />
+              <input type="hidden" name="from_name" value="ChillMuse Landing Page" />
+              
+              {/* Botspam protection (Honeypot) */}
+              <input type="checkbox" name="botcheck" className="hidden" style={{display: 'none'}} />
+
               <div>
                 <label htmlFor="email" className="block text-xs font-bold text-brand-text uppercase tracking-wider mb-2">Email Address</label>
                 <input 
                   type="email" 
                   id="email"
+                  name="email"
                   required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
                   className="w-full bg-brand-cream border-2 border-brand-black rounded-xl px-4 py-3 text-brand-black placeholder-gray-400 focus:outline-none focus:bg-white focus:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
                   placeholder="name@example.com"
                 />
